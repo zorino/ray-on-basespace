@@ -1,6 +1,3 @@
-# Maintener
-MAINTAINER Maxime Deraspe maxime@deraspe.net
-
 # Linux OS
 FROM centos
 
@@ -22,11 +19,5 @@ RUN cd /opt/; git clone https://github.com/Zorino/ray-on-basespace.git;\
  cd bin; ln -s ../ray-on-basespace/Generate-RayConf.sh .;\
  ln -s ../ray-on-basespace/Ray-Launcher.py .;
 
-# Launch memcached when launching the container
-#ENTRYPOINT ["memcached"]
-
-# run memcached as the daemon user
-#USER daemon
-
-# expose memcached port
-#EXPOSE 11211
+# Maintener
+MAINTAINER Maxime Deraspe maxime@deraspe.net
