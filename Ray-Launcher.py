@@ -30,8 +30,8 @@ if __name__ == "__main__":
     kmerSize = getKmerSize(json)
     
     os.chdir("/opt/")
-    subprocess.call(["bash bin/Generate-RayConf.sh", "-r /input/","-d .", "-k "+kmerSize, "-o Assembly"])
+    subprocess.call(["bash bin/Generate-RayConf.sh", "-r /data/input/samples/","-d .", "-k "+kmerSize, "-o Assembly"])
     subprocess.call(["module load openmpi-x86_64"])
     subprocess.call(["mpiexec -n 32 bin/Ray Ray.conf"])
-    subprocess.call(["mv Assembly /output/"])
+    subprocess.call(["mv Assembly /data/output/"])
 
