@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import sys
+import os
+import subprocess
 import json
 
 
@@ -22,11 +24,14 @@ def getKmerSize(json):
             return key['Content']
 
 
-
 if __name__ == "__main__":
 
     json = readAppSession(sys.argv[1])
     kmerSize = getKmerSize(json)
-
     
+    os.chdir("/opt/")
+    subprocess.call(["bash bin/Generate-RayConf.sh", "-r /input/","-d .", "-k "+kmerSize, "-o Assembly"])
+    subprocess.call(["module load openmpi-x86_64"])
+    subprocess.call(["mpiexec -n 32 bin/Ray Ray.conf"])
+    subprocess.call(["mv Assembly /output/"])
 
