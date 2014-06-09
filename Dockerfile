@@ -12,7 +12,6 @@ RUN source /etc/profile; module load openmpi-x86_64;\
  cd /opt/ray/; make clean;\
  make PREFIX=BUILD MAXKMERLENGTH=64 HAVE_LIBZ=y HAVE_LIBBZ2=y ASSERT=n;\
  make install;\
- cd /opt/; mkdir bin; cd bin/; ln -s ../ray/BUILD/Ray .;
 
 # Install utilitaries to run assemblies
 RUN cd /opt/; git clone https://github.com/Zorino/ray-on-basespace.git;\
