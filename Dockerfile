@@ -18,8 +18,9 @@ RUN source /etc/profile; module load openmpi-x86_64;\
  cd /opt/; mkdir bin; cd bin/; ln -s ../ray/BUILD/Ray .;
 
 # Install utilitaries to run assemblies
-RUN cd /opt/; git clone 
-
+RUN cd /opt/; git clone https://github.com/Zorino/ray-on-basespace.git;\
+ cd bin; ln -s ../ray-on-basespace/Generate-RayConf.sh .;\
+ ln -s ../ray-on-basespace/Ray-Launcher.py .;
 
 # Launch memcached when launching the container
 #ENTRYPOINT ["memcached"]
