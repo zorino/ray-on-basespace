@@ -32,5 +32,5 @@ if __name__ == "__main__":
     
     os.chdir("/opt/")
     subprocess.call(["bash", "/opt/ray-on-basespace/Generate-RayConf.sh", "-r /data/input/samples/","-d .", "-k "+kmerSize, "-o Assembly"])
-    subprocess.call(["mpiexec", "-n 32", "bin/Ray", "Ray.conf"])
+    subprocess.call(["mpiexec", "-n 32", "/opt/ray/BUILD/Ray", "Ray.conf"])
     subprocess.call(["mv", "Assembly", "/data/output/appresults/"])
