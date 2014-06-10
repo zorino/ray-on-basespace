@@ -2,5 +2,4 @@
 
 source /etc/profile
 module load openmpi-x86_64
-python2 Ray-Launcher.sh
-
+python2 /opt/ray-on-basespace/Ray-Launcher.py
