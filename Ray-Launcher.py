@@ -34,4 +34,4 @@ if __name__ == "__main__":
     subprocess.call(["bash", "bin/Load-Modules.sh"])
     subprocess.call(["bash", "bin/Generate-RayConf.sh", "-r /data/input/samples/","-d .", "-k "+kmerSize, "-o Assembly"])
     subprocess.call(["mpiexec", "-n 32", "bin/Ray", "Ray.conf"])
-    subprocess.call(["mv", "Assembly", "/data/output/"])
+    subprocess.call(["mv", "Assembly", "/data/output/appresults/"])
