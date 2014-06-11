@@ -15,7 +15,7 @@ RUN source /etc/profile; module load openmpi-x86_64;\
 
 # Install utilitaries to run assemblies
 RUN cd /opt/; git clone https://github.com/Zorino/ray-on-basespace.git;\
- cd ray-on-basespace/; git pull;\
+ cd ray-on-basespace/; git pull;
 
 # Maintener
 MAINTAINER Maxime Deraspe maxime@deraspe.net
