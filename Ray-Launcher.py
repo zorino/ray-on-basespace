@@ -23,11 +23,22 @@ def getKmerSize(json):
         if key['Name'] == "Input.KmerSize":
             return key['Content']
 
+def getProjectID(json):
+
+    for key in json['Properties']['Items']:
+        if key['Name'] == "Input.project-id":
+            return key['Content']['Id']
+ 
+
 
 if __name__ == "__main__":
 
     json = readAppSession(sys.argv[1])
-    kmerSize = getKmerSize(json)
-    
-    os.chdir("/opt/")
-    subprocess.call(["bash", "/opt/ray-on-basespace/Generate-RayConf.sh", "-r /data/input/samples/","-d .", "-k "+kmerSize, "-o Assembly"])
+
+    if sys.argv[2] == "kmersize":
+        kmerSize = getKmerSize(json)
+        print kmerSize
+    elif sys.argv[2] == "projectID":
+        projectID = getProjectID(json)
+        print projectID
+
