@@ -5,10 +5,11 @@ module load openmpi-x86_64
 
 echo "Generating Ray Config File.."
 cd /opt/
-kmersize=$(python2 ./ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json kmersize)
-projectID=$(python2 ./ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json projectID)
+kmersize=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json kmersize)
+projectID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json projectID)
+sampleID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json sampleID)
 mkdir Search-Datasets
-bash /opt/ray-on-basespace/Generate-RayConf.sh -r /data/input/samples/ -d ./Search-Datasets -k $kmerSize -o Assembly
+bash /opt/ray-on-basespace/Generate-RayConf.sh -r /data/input/samples/$sampleID -d ./Search-Datasets -k $kmersize -o Assembly
 cat Ray.conf
 
 echo "Running Ray Assembly.."

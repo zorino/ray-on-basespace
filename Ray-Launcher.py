@@ -29,6 +29,12 @@ def getProjectID(json):
         if key['Name'] == "Input.project-id":
             return key['Content']['Id']
  
+def getSampleID(json):
+
+    for key in json['Properties']['Items']:
+        if key['Name'] == "Input.sample-id":
+            return key['Content']['Id']
+
 
 
 if __name__ == "__main__":
@@ -41,4 +47,7 @@ if __name__ == "__main__":
     elif sys.argv[2] == "projectID":
         projectID = getProjectID(json)
         print projectID
+    elif sys.argv[2] == "sampleID":
+        sampleID = getSampleID(json)
+        print sampleID
 
