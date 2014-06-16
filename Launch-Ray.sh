@@ -14,6 +14,7 @@ mkdir Search-Datasets
 mkdir -p /data/output/appresults/$projectID/
 bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets -k $kmersize -o /data/output/appresults/$projectID/$sampleID
 echo "Running Ray Assembly.."
+cat Ray.conf
 mpiexec -n 32 /opt/ray/BUILD/Ray Ray.conf
 ls /data/output/appresults/$projectID/$sampleID
 
