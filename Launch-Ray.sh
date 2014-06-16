@@ -11,11 +11,11 @@ sampleID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json 
 mkdir Search-Datasets
 reads=$(find /data/input/samples/$sampleID -name "*fastq*")
 readDir=$(dirname $reads)
-bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets -k $kmersize -o Assembly
+bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets -k $kmersize -o 
 
 echo "Running Ray Assembly.."
 mpiexec -n 32 ./ray/BUILD/Ray Ray.conf
 mkdir -p /data/output/appresults/$projectID/$sampleID
-mv Assembly /data/output/appresults/$projectID/$sampleID/
+mv Assembly/* /data/output/appresults/$projectID/$sampleID/
 
 echo "Assembly Finished"
