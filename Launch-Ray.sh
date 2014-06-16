@@ -15,6 +15,7 @@ bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets 
 
 echo "Running Ray Assembly.."
 mpiexec -n 32 ./ray/BUILD/Ray Ray.conf
-mv Assembly /data/output/appresults/
+mkdir -p /data/output/appresults/$projectID/$sampleID
+mv Assembly /data/output/appresults/$projectID/$sampleID/
 
 echo "Assembly Finished"

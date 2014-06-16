@@ -35,7 +35,8 @@ def getSampleID(json):
         if key['Name'] == "Input.sample-id":
             return key['Content']['Id']
 
-
+def getAppResult(json):
+    return json['Name']
 
 if __name__ == "__main__":
 
@@ -50,4 +51,7 @@ if __name__ == "__main__":
     elif sys.argv[2] == "sampleID":
         sampleID = getSampleID(json)
         print sampleID
+    elif sys.argv[2] == "appresult":
+        appresult = getAppResult(json)
+        print appresult
 
