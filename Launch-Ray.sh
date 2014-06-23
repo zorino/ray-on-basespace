@@ -16,7 +16,7 @@ do
     gzFile=$(echo $i | grep "fastq" | grep "_R" | grep ".gz$")
     if [ ! -z $gzFile ]
     then
-	ln -s $i /tmp/reads-for-assembly/$i.fastq.gz
+	ln -s $i /tmp/reads-for-assembly/`basename $i`.fastq.gz
     fi
 done
 
