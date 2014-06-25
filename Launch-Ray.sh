@@ -26,7 +26,7 @@ bash /opt/ray-on-basespace/Generate-RayConf.sh -r /tmp/reads-for-assembly -d ./S
 
 echo "Running Ray Assembly.."
 cat Ray.conf
-mpiexec -n 10 /opt/ray/BUILD/Ray Ray.conf
+mpiexec -n 10 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
 
 echo "Assembly Finished"
 
