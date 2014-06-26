@@ -90,7 +90,7 @@ cd $r
 rdir=$(pwd)
 seqDone=""
 
-for i in $(ls | grep fastq)
+for i in $(ls | grep "fastq" | grep "_R")
 do
     if [[ $(echo $i | grep R1_) != "" ]] && [[ $(echo $seqDone | grep $i) == "" ]]
     then
