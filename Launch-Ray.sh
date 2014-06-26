@@ -10,6 +10,10 @@ projectID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json
 sampleID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json sampleID)
 reads=$(find /data/input/samples/$sampleID -name "*fastq*" | head -n 1)
 readDir=$(dirname $reads)
+for i in $(ls $readDir | grep fastq)
+do
+    mv $readDir/$i $readDir/$i.fastq.gz
+done
 
 mkdir Search-Datasets
 mkdir -p /data/output/appresults/$projectID
