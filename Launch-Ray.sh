@@ -10,18 +10,19 @@ projectID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json
 sampleID=$(python2 ray-on-basespace/Ray-Launcher.py /data/input/AppSession.json sampleID)
 reads=$(find /data/input/samples/$sampleID -name "*fastq*" | head -n 1)
 readDir=$(dirname $reads)
-for i in $(ls $readDir | grep fastq)
+mkdir reads
+for i in $(ls $readDir | grep "fastq" | grep "_R")
 do
-    mv $readDir/$i $readDir/$i.fastq.gz
+    cp $readDir/$i ./reads/$i.fastq.gz
 done
 
 mkdir Search-Datasets
 mkdir -p /data/output/appresults/$projectID
-bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets -k $kmersize -o /data/output/appresults/$projectID/$sampleID
+bash /opt/ray-on-basespace/Generate-RayConf.sh -r ./reads -d ./Search-Datasets -k $kmersize -o /data/output/appresults/$projectID/$sampleID
 
 echo "Running Ray Assembly.."
 cat Ray.conf
-mpiexec -n 10 /opt/ray/BUILD/Ray Ray.conf -debug
+mpiexec -n 10 /opt/ray/BUILD/Ray Ray.conf
 
 echo "Assembly Finished"
 
