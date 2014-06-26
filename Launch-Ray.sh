@@ -21,7 +21,7 @@ bash /opt/ray-on-basespace/Generate-RayConf.sh -r $readDir -d ./Search-Datasets 
 
 echo "Running Ray Assembly.."
 cat Ray.conf
-mpiexec -n 10 --mca btl ^sm /opt/ray/BUILD/Ray Ray.conf -debug
+mpiexec -n 10 /opt/ray/BUILD/Ray Ray.conf -debug
 
 echo "Assembly Finished"
 
