@@ -2,7 +2,7 @@
 FROM centos
 
 # Install Dependency
-RUN yum install -y gcc-c++ openmpi openmpi-devel zlib zlib-devel bzip2-libs bzip2-devel git
+RUN yum install -y gcc-c++ make openmpi openmpi-devel zlib zlib-devel bzip2-libs bzip2-devel git
 
 # Install RayPlatform and Ray from github
 RUN source /etc/profile; module load mpi/openmpi-x86_64;\
