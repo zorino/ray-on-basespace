@@ -5,7 +5,7 @@ FROM centos
 RUN yum install -y gcc-c++ openmpi openmpi-devel zlib zlib-devel bzip2-libs bzip2-devel git
 
 # Install RayPlatform and Ray from github
-RUN source /etc/profile; module load openmpi-x86_64;\
+RUN source /etc/profile; module load mpi/openmpi-x86_64;\
  cd /opt/; git clone https://github.com/sebhtml/RayPlatform.git; cd RayPlatform/;\
  make clean; make;\
  cd /opt/; git clone https://github.com/sebhtml/ray.git;\
