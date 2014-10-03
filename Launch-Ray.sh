@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source /etc/profile
-module load openmpi-x86_64
+module load mpi/openmpi-x86_64
 
 echo "Generating Ray Config File.."
 cd /opt/
