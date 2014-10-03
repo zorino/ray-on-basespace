@@ -20,8 +20,13 @@ mkdir Search-Datasets
 mkdir -p /data/output/appresults/$projectID
 bash /opt/ray-on-basespace/Generate-RayConf.sh -r ./reads -d ./Search-Datasets -k $kmersize -o /data/output/appresults/$projectID/$sampleID
 
-echo "Running Ray Assembly.."
+echo -e "Output Directory : /data/output/appresults/$projectID/$sampleID \n"
+
+echo -e "Running Ray Assembly.."
+
 cat Ray.conf
+
+
 mpiexec -n 10 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
 
 echo "Assembly Finished"
