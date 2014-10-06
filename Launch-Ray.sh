@@ -26,9 +26,14 @@ echo -e "Running Ray Assembly.."
 
 cat Ray.conf
 
-
-mpiexec -n 10 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
+mpiexec -n 32 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
 
 echo "Assembly Finished"
+
+echo "Extracting information for basespace"
+
+python ray-on-basespace/Create-Basespace-JSON.py /data/output/appresults/$projectID/$sampleID/OutputNumbers.txt
+
+echo "Everythings finished"
 
 wait
