@@ -28,11 +28,13 @@ cat Ray.conf
 
 mpiexec -n 32 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
 
+wait
+
 echo "Assembly Finished"
 
 echo "Extracting information for basespace"
 
-python ray-on-basespace/Create-Basespace-JSON.py /data/output/appresults/$projectID/$sampleID/OutputNumbers.txt
+python ray-on-basespace/Create-Basespace-Report-Files.py /data/output/appresults/$projectID/$sampleID/OutputNumbers.txt > /data/output/appresults/$projectID/$sampleID/OutputNumbers.tsv
 
 echo "Everythings finished"
 

@@ -54,4 +54,4 @@ if __name__ == "__main__":
     elif sys.argv[2] == "appresult":
         appresult = getAppResult(json)
         print appresult
-
+        
