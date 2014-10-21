@@ -26,7 +26,7 @@ echo -e "Running Ray Assembly.."
 
 cat Ray.conf
 
-mpiexec -n 32 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
+mpiexec -n 28 --mca btl tcp,self /opt/ray/BUILD/Ray Ray.conf
 
 wait
 
